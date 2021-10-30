@@ -65,6 +65,5 @@ class grade56Compute(gradeCompute):
         elif choose == 1:
             self.fun2(self)
 
-test = grade56Compute
-test.generate(test)
+
 
