@@ -45,6 +45,5 @@ class grade1compute(gradeCompute):
             self.fun2(self)
 
 
-a=grade1compute
-a.generate(a)
+
 
