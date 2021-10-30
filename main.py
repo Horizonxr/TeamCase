@@ -30,7 +30,7 @@ if __name__ == "__main__":
         for i in range(num):
             true_ans = grade56.generate()
             grade56.ans = true_ans
-            user_ans = int(input())
+            user_ans = float(input())
             if not grade56.userAns(user_ans):
                 wrong += 1
     if wrong == 0:
