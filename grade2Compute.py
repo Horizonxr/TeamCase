@@ -2,23 +2,24 @@ from gradeCompute import gradeCompute
 import numpy
 class grade2Compute(gradeCompute):
     def generate(self):
-        sign = ['+','-','*','/']
+        sign = ['+', '-', '*', '/']
         num = []
         sign_index = []
         lift_brackets = -1
         right_brackets = -1
         str1 = ''
-        opt = numpy.random.randint(1, 4)  #随机生成操作数为2，3，4的情况
-        form = numpy.random.randint(0, 2) #随机生成有无括号情况
+        opt = numpy.random.randint(1, 4)  # 随机生成操作数为2，3，4的情况
+        form = numpy.random.randint(0, 2)  # 随机生成有无括号情况
         if form == 1 and opt > 1:
             lift_brackets = numpy.random.randint(0, opt)
-            right_brackets = numpy.random.randint(lift_brackets + 1, 4)
+            right_brackets = numpy.random.randint(lift_brackets + 1, opt+1)
+            print(right_brackets)
         i = 0
         while i < opt:
             if i == lift_brackets:
-                num += ['(' + str(numpy.random.randint(0, 10001))]  #将左括号与数字拼接
+                num += ['(' + str(numpy.random.randint(0, 10001))]  # 将左括号与数字拼接
             elif i == right_brackets:
-                num += [str(numpy.random.randint(0, 10001)) + ')']  #将右括号与数字拼接
+                num += [str(numpy.random.randint(0, 10001)) + ')']  # 将右括号与数字拼接
             else:
                 num += [numpy.random.randint(0, 10001)]
             sign_index += [numpy.random.randint(0, 4)]
@@ -27,6 +28,6 @@ class grade2Compute(gradeCompute):
         str1 += str(numpy.random.randint(0, 10001))
         if right_brackets == opt:
             str1 += ')'
-        print(str1 + '=' + '\n')  #输出算式
-        ans = int(eval(str1))
-        return str1
+        print(str1 + '=' + '\n')  # 输出算式
+        ans = int(eval(str1.replace('/', '//')))
+        return ans
