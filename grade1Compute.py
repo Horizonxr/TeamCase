@@ -23,7 +23,7 @@ class grade1compute(gradeCompute):
         # print(operators)
         ans = eval(str1) #用函数计算简化代码
         ans = round(ans, 2)
-        print(ans)
+        return ans
 
     def fun2(self):
         sig = ['+', '-']
@@ -35,14 +35,14 @@ class grade1compute(gradeCompute):
         str1 = str(num1) + op1 + '(' + str(num2) + op2 + str(num3) + ')'
         print(str1)
         ans = eval(str1)
-        print(ans)
+        return ans
 
     def generate(self):
-        choose = random.randint(0,1)
+        choose = random.randint(0, 1)
         if choose == 0:
-            self.fun1(self)
+            return self.fun1()
         elif choose == 1:
-            self.fun2(self)
+            return self.fun2()
 
 
 
