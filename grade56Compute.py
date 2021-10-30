@@ -2,9 +2,9 @@ import random
 from gradeCompute import gradeCompute
 class grade56Compute(gradeCompute):
     def __init__(self):
-        self.sig = ['+', '-', '', '']
+        self.sig = ['+', '-', '*', '/']
     def generate(self):
-        sig = ['+', '-', '', '']
+        sig = ['+', '-', '*', '/']
         count = random.randint(2, 5)
         nums = []
         operators = []
@@ -18,10 +18,11 @@ class grade56Compute(gradeCompute):
             str1 += str(nums[i])
             str1 += operators[i]
         str1 += str(nums[count - 1])
-        print(str1)
+        # print(str1)
         # print(nums)
         # print(operators)
         ans = eval(str1)
         ans = round(ans, 2)
         print(ans)
+        return ans
 
