@@ -1,20 +1,6 @@
 import random
 
-
-class gradeCompute:
-    ans = 0  # 正确答案
-
-    def __init__(self, ans):
-        self.ans = ans
-
-    def generate(self):  # 生成表达式，返回表达式，将正确答案存入ans
-        return 0
-
-    def userAns(self, user_ans):  # 验证结果，返回正误
-        if self.ans == user_ans:
-            return True
-        else:
-            return False
+from gradeCompute import gradeCompute
 
 
 class grade56Compute(gradeCompute):
@@ -39,7 +25,6 @@ class grade56Compute(gradeCompute):
         # print(operators)
         ans = eval(str1)
         ans = round(ans, 2)
-        print(ans)
         return ans
 
     def fun2(self):
@@ -55,15 +40,14 @@ class grade56Compute(gradeCompute):
         ans = round(eval(str2), 2)
         str3 = '(' + str1 + ')' + op2 + str(num3)
         print(str3)
-        print(ans)
         return ans
 
     def generate(self):
         choose = random.randint(0, 1)
         if choose == 0:
-            self.fun1(self)
+            self.fun1()
         elif choose == 1:
-            self.fun2(self)
+            self.fun2()
 
 
 
