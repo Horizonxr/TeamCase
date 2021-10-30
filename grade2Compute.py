@@ -13,7 +13,6 @@ class grade2Compute(gradeCompute):
         if form == 1 and opt > 1:
             lift_brackets = numpy.random.randint(0, opt)
             right_brackets = numpy.random.randint(lift_brackets + 1, opt+1)
-            print(right_brackets)
         i = 0
         while i < opt:
             if i == lift_brackets:
