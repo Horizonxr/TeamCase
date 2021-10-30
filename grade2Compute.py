@@ -1,5 +1,7 @@
 from gradeCompute import gradeCompute
 import numpy
+
+
 class grade2Compute(gradeCompute):
     def generate(self):
         sign = ['+', '-', '*', '/']
