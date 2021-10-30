@@ -25,6 +25,7 @@ class grade56Compute(gradeCompute):
         # print(operators)
         ans = eval(str1)
         ans = round(ans, 2)
+        print(ans)
         return ans
 
     def fun2(self):
@@ -40,14 +41,15 @@ class grade56Compute(gradeCompute):
         ans = round(eval(str2), 2)
         str3 = '(' + str1 + ')' + op2 + str(num3)
         print(str3)
+        print(ans)
         return ans
 
     def generate(self):
         choose = random.randint(0, 1)
         if choose == 0:
-            self.fun1()
+            return self.fun1()
         elif choose == 1:
-            self.fun2()
+            return self.fun2()
 
 
 
