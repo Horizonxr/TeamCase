@@ -5,13 +5,30 @@ import numpy
 class grade2Compute(gradeCompute):
     def generate(self):
         sign = ['+', '-', '*', '/']
-        sign_lindex = numpy.random.randint(0, 4)  # 第一个运算符下标
-        sign_rindex = numpy.random.randint(0, 4)  # 第二个运算符下标
-        num1 = numpy.random.randint(0, 10001)
-        num2 = numpy.random.randint(0, 10001)
-        num3 = numpy.random.randint(0, 10001)  # 三个运算项下标
-        str1 = str(num1) + ' ' + sign[sign_lindex] + ' ' + str(num2) + ' ' + sign[sign_rindex] + ' ' + str(
-            num3)  # 生成便于表达式计算的字符串
-        print(str1 + '=' + '\n')
-        ans = int(eval(str1))  # 计算表达式
-        return str1
+        num = []
+        sign_index = []
+        lift_brackets = -1
+        right_brackets = -1
+        str1 = ''
+        opt = numpy.random.randint(1, 4)  # 随机生成操作数为2，3，4的情况
+        form = numpy.random.randint(0, 2)  # 随机生成有无括号情况
+        if form == 1 and opt > 1:
+            lift_brackets = numpy.random.randint(0, opt)
+            right_brackets = numpy.random.randint(lift_brackets + 1, opt+1)
+        i = 0
+        while i < opt:
+            if i == lift_brackets:
+                num += ['(' + str(numpy.random.randint(0, 10001))]  # 将左括号与数字拼接
+            elif i == right_brackets:
+                num += [str(numpy.random.randint(0, 10001)) + ')']  # 将右括号与数字拼接
+            else:
+                num += [numpy.random.randint(0, 10001)]
+            sign_index += [numpy.random.randint(0, 4)]
+            str1 = str1 + str(num[i]) + sign[sign_index[i]]
+            i += 1
+        str1 += str(numpy.random.randint(0, 10001))
+        if right_brackets == opt:
+            str1 += ')'
+        print(str1 + '=' + '\n')  # 输出算式
+        ans = int(eval(str1.replace('/', '//')))
+        return ans
